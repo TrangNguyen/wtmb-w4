@@ -18,7 +18,11 @@ Run the project:
 ```
 node index.js
 ```
-
+Or using nodemon (devDep)
+```
+npm i nodemone --save-dev
+./node_modules/.bin/nodemon --ignore database.json
+```
 ----
 
 ## Final step
