@@ -1,0 +1,10 @@
+extends layout
+
+block content
+    h1 The list of #{people.length} people in the world
+    
+    each p in people
+        p #{p.name}
+            strong #{p.age}
+
+
