@@ -1,0 +1,10 @@
+extends layout
+
+block content
+    if user.boards.length
+        h1 List of #{user.boards.length} boards created by #{user.name}
+        each board in user.boards
+            p #{board.title}
+    else
+        h1 #{user.name} has no board yet!     
+

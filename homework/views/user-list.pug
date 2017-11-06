@@ -1,0 +1,12 @@
+extends layout
+
+block content
+    if users.length
+        h1 There are #{users.length} users using this app.        
+        each user in users
+            div 
+                p #{user.name}
+                a(href=`/users/${user.id}`) See #{user.name}'s detail.
+                a(href=`/users/${user.id}/boards`) See #{user.name}'s boards.
+    else
+        h1 No one here yet!
