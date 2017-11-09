@@ -2,6 +2,9 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
 
+// connect to database
+require('./database-connection');
+
 const app = express()
 
 app.use(bodyParser.json())
