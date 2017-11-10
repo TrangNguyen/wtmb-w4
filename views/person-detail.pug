@@ -5,6 +5,17 @@ block content
         h1 Hello #{person.name}!
         p Here are your full details:
         pre= JSON.stringify(person, null, 2)
+        if person.boards.length
+            h2 Boards you created
+            each board in person.boards
+                p #{board.title}
+                    a(href=`/board/${board.id}`) See board
+        else
+            h2 Create a board and start brainstorming!
+            //- script.
+            //-     axios.post('/board', { title: 'A brainstorming session', author: person.id })
+        //- if person.boards.collabs.length
+        //-     p You also collaborate in #{person.boards.collabs.length} boards.
     else
         h1 There's no such person!
     script.

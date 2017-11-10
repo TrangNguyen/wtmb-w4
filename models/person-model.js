@@ -8,19 +8,25 @@ const PersonSchema = mongoose.Schema({
         type: String,
         required: true,
         minlength: 3
-    }, // type of the value for this field
-    age: {
-        type: Number,
-        default: 0
     },
-    friends: [{
+    // job title
+    title: {
+        type: String,
+        minlength: 3
+    },
+    boards: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Person'
+        ref: 'Board'
+    }],
+    // note this user creates
+    notes: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Note'
     }]
 });
 
 // using mongose-sequence to auto increment the id field.
-PersonSchema.plugin(AutoIncrement, { inc_field: 'id' });
+PersonSchema.plugin(AutoIncrement, { id:'personSchemaInternalCounter', inc_field: 'id' });
 
 // create/export a mongoose model with name and its schema.
 module.exports = mongoose.model('Person', PersonSchema); 

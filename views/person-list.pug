@@ -8,12 +8,14 @@ block content
             thead
                 td ID
                 td Name
-                td Age
+                td Title
+                td Boards
             each person in people
                 tr
                     td #{person.id}
                     td #{person.name}
-                    td #{person.age}
+                    td #{person.title}
+                    td #{person.boards.length}
 
         pre= JSON.stringify(people, null, 2)
     else

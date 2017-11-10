@@ -14,7 +14,7 @@ function del(id) {
 
 function find(id) {
     // first record that matches
-    return PersonModel.findOne({id}).populate('friends');
+    return PersonModel.findOne({id}).populate('boards');
 }
 
 module.exports = {
