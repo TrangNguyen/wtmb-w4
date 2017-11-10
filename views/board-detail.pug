@@ -1,0 +1,26 @@
+extends layout
+
+block content
+    if board
+        h1 #{board.title}
+        h3 by #{board.author.name}
+        if board.notes.length
+            h4 Here are #{board.notes.length} notes inside this board
+            table
+                thead
+                    td ID
+                    td Content
+                    td Author
+                each note in board.notes
+                    tr
+                        td #{note.id}
+                        td #{note.description}
+                        //- td #{note.author.name}
+
+            pre= JSON.stringify(board, null, 2)
+        else
+            p There's no note yet :(
+        script.
+            console.log(!{JSON.stringify(board)})
+    else
+        p There is no such a board
